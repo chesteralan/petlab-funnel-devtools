@@ -1,3 +1,17 @@
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          loader: 'babel-loader',
+          test: '/\.(js|jsx)$/',
+        }
+      ],
+    },
+  })
+}
+
 exports.createPages = async function ({ graphql, actions }) {
    const path = require('path');
 
