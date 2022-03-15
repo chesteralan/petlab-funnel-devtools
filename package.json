@@ -1,11 +1,16 @@
 {
   "name": "petlab-funnel-devtools",
-  "version": "1.0.1-1",
+  "version": "1.0.1-2",
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\""
   },
   "author": "chesteralan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^4.9.3",
+    "react": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  }
 }
