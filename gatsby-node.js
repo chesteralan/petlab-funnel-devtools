@@ -58,17 +58,6 @@ await fetchFunnels().then((pages) => {
   })
 });
 
-    // actions.createPage({
-    //   path: '/devtools/funnels-list',
-    //   component: path.resolve(`${__dirname}/pages/funnels-list.js`),
-    //   context: { 
-    //     devtools_shortcuts: false,
-    //     offset: 0,
-    //     limit: resultsLimit,
-    //     fetching: true,
-    //   },
-    // });
-
     actions.createPage({
       path: '/devtools/salesletters-list',
       component: path.resolve(`${__dirname}/pages/salesletters-list.js`),
