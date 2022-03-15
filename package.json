@@ -8,10 +8,12 @@
   },
   "author": "chesteralan",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "gatsby": "^4.9.3",
     "react": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "webpack": "^5.70.0"
+    "react-helmet": "^6.1.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.7"
   }
 }
