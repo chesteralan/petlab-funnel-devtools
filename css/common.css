@@ -1,0 +1,6 @@
+#devtools-funnels-table tr:hover {
+    background-color: #ebebeb;
+}
+#devtools-funnels-table td:hover {
+    background-color: #ffe9e9;
+}

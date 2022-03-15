@@ -1,20 +1,33 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import TopNav from '../components/TopNav/TopNav';
+import RefreshDataButton from '../components/RefreshDataButton/RefreshDataButton';
+import '../css/common.css';
 
-const DataList = ({ allFunnelPageData: { nodes }}) => {
+const DataList = (props) => {
 
-    return (<div>
+    const { allFunnelPageData: { nodes } } = props;
+
+    return (<>
+    <Helmet>
+    <title>Petlab - Builder - Developer Tools</title>
+</Helmet>
+    
+<div style={{ padding: 20 }}>
+    <RefreshDataButton />
+    <TopNav active="product-selectors" />
+    <br />
+    <br />
     <strong>Data List</strong>
     <ul>
-    {nodes.map(({ path }) => {
-        return <li><a href={`/devtools/funnel-data?path=${path}`}>{path}</a></li>
+    {nodes.map(({ path }, index) => {
+        return <li key={index}><a 
+        href={`/devtools/funnel-data?path=${path}`}
+        >{path}</a></li>
     })}
     </ul>
-    <Helmet>
-  <title>Petlab Developer Tools</title>
-</Helmet>
-    </div>)
+    </div></>)
 }
 
 const LoopObject = ({ items }) => {
@@ -80,7 +93,8 @@ const FilteredData = (props) => {
     console.log("subscription:", subscription);
 
     return (<div style={{ padding: 20 }}>
-    <p><strong><a href="/devtools/funnels-list">Back to Funnels List</a></strong></p>
+    <RefreshDataButton />
+    <TopNav active="product-selectors" />
     <p><strong><a href="/devtools/funnel-data">Back to Data List</a></strong></p>
     <p><strong>Note:</strong> You can also view in the console.</p>
     <h1 style={{ textAlign: 'center' }}>{path}</h1>
