@@ -1,10 +1,10 @@
 {
   "name": "petlab-funnel-devtools",
-  "version": "1.0.1",
+  "version": "1.0.1-1",
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "author": "chesteralan",
   "license": "ISC"
