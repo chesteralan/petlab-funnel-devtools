@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { graphql } from 'gatsby';
 import '../css/common.css';
 
 // funnel components
-import TrContainer from '../components/Funnels/TrContainer';
-import LinkListContainer from '../components/Funnels/LinkListContainer';
-import THeadContainer from '../components/Funnels/THeadContainer';
-import ShowHiddenColumnsContainer from '../components/Funnels/ShowHiddenColumnsContainer';
-import ListForm from '../components/Funnels/ListForm';
+import TrContainer from '../components/TrContainer/TrContainer';
+import LinkListContainer from '../components/LinkListContainer/LinkListContainer';
+import THeadContainer from '../components/THeadContainer/THeadContainer';
+import ShowHiddenColumnsContainer from '../components/ShowHiddenColumnsContainer/ShowHiddenColumnsContainer';
+import ListForm from '../components/ListForm/ListForm';
 import RefreshDataButton from '../components/RefreshDataButton/RefreshDataButton';
 import TopNav from '../components/TopNav/TopNav';
 import PasswordInput from '../components/PasswordInput/PasswordInput';
 
-
 // funnel helpers 
-import { filterFunction, sortFunction } from '../components/Funnels/helpers';
-import { Pages } from '../components/Pages/Pages';
+import { filterFunction, sortFunction } from '../utils/helpers';
+import Pages from '../components/Pages/Pages';
 
 
 const FunnelsList = (props) => {
@@ -27,22 +26,22 @@ const FunnelsList = (props) => {
   
   const [ password ] = useLocalStorage("PETLAB_BUILDER_DEVTOOLS_PASSWORD", "");
 
-  const [linkList, setLinkList] = useState('');
-  const [linkListQuery, setLinkListQuery] = useState('');
-  const [sortBy, setSortBy] = useState('none');
-  const [filterBy, setFilterBy] = useState('none');
-  const [filterByPathname, setFilterByPathname] = useState('');
-  const [filterByDesign, setFilterByDesign] = useState('design2');
-  const [filterByTag, setFilterByTag] = useState('Probiotic Chews');
-  const [showVariable, setShowVariable] = useState('pathname');
-  const [tableBuilder, setTableBuilder] = useState(true);
-  const [tableStaging, setTableStaging] = useState(false);
-  const [tableLive, setTableLive] = useState(true);
-  const [tableLocal, setTableLocal] = useState(true);
-  const [tableData, setTableData] = useState(true);
-  const [tableProductSelector, setTableProductSelector] = useState(false);
-  const [showLiveUrl, setShowLiveUrl] = useState(false);
-  const [showStagingUrl, setShowStagingUrl] = useState(false);
+  const [linkList, setLinkList] = useLocalStorage('link-list','');
+  const [linkListQuery, setLinkListQuery] = useLocalStorage('link-list-query','');
+  const [sortBy, setSortBy] = useLocalStorage('sort-by','none');
+  const [filterBy, setFilterBy] = useLocalStorage('filter-by','none');
+  const [filterByPathname, setFilterByPathname] = useLocalStorage('filter-by-pathname','');
+  const [filterByDesign, setFilterByDesign] = useLocalStorage('filter-by-design','design2');
+  const [filterByTag, setFilterByTag] = useLocalStorage('filter-by-tag','Control');
+  const [showVariable, setShowVariable] = useLocalStorage('show-variable','pathname');
+  const [tableBuilder, setTableBuilder] = useLocalStorage('table-builder',true);
+  const [tableStaging, setTableStaging] = useLocalStorage('table-staging',false);
+  const [tableLive, setTableLive] = useLocalStorage('table-live',true);
+  const [tableLocal, setTableLocal] = useLocalStorage('table-local',true);
+  const [tableData, setTableData] = useLocalStorage('table-data',true);
+  const [tableProductSelector, setTableProductSelector] = useLocalStorage('table-product-selector',false);
+  const [showLiveUrl, setShowLiveUrl] = useLocalStorage('table-live-url',false);
+  const [showStagingUrl, setShowStagingUrl] = useLocalStorage('table-staging-url',false);
 
   const funnels = props.data.allBuilderModels.funnel;
   const allFunnelPageData = props.data.allFunnelPageData.nodes;

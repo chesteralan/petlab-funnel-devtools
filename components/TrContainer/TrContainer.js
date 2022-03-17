@@ -1,5 +1,5 @@
 import React from 'react'
-import ShowVariableContainer from './ShowVariableContainer';
+import ShowVariableContainer from '../ShowVariableContainer/ShowVariableContainer';
 
 function TrContainer(props) {
     

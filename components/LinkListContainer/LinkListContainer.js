@@ -1,5 +1,5 @@
 import React from 'react'
-import { filterFunction, sortFunction } from './helpers';
+import { filterFunction, sortFunction } from '../../utils/helpers';
 
 const LinkListContainer = (props) => {
 

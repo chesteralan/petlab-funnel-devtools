@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-export const Pages = ({ pages, pathPrefix, offset: currentOffset }) => {
+const Pages = ({ pages, pathPrefix, offset: currentOffset }) => {
 
   const styles = { 
     marginTop: 10, 
@@ -15,9 +15,8 @@ export const Pages = ({ pages, pathPrefix, offset: currentOffset }) => {
   };
 
   
-  
-  return (
-    <ul style={styles}>
+  return (<>
+    {(pages.length > 1) && <ul style={styles}>
     {pages.map(({ limit, offset }, index) => {
         const path = (offset > 0) ? `${pathPrefix}-${offset}-${limit}` : pathPrefix;
         const itemStyles = {
@@ -38,11 +37,13 @@ export const Pages = ({ pages, pathPrefix, offset: currentOffset }) => {
           linkStyles.color = "black";
         }
 
-        console.log(offset, currentOffset, itemStyles)
     return <li key={index} style={itemStyles}>
         <Link to={path} style={linkStyles}>Page {index + 1}</Link> 
         </li>
     })}
-    </ul>
+    </ul>}
+    </>
   )
 }
+
+export default Pages;
