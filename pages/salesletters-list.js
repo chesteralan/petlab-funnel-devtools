@@ -70,6 +70,7 @@ const FunnelsList = (props) => {
 
     return <>{( (password?.length > 0) && (password === process.env.GATSBY_DEVTOOLS_PASSWORD) ) ? (<div style={{ padding: 20 }}>
       <RefreshDataButton />
+      <RebuildSiteButton />
       <TopNav active="salesletters" />
       <ListForm {...STATES} />
       <LinkListContainer {...STATES} />

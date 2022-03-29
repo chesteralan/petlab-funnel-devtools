@@ -1,11 +1,29 @@
 {
   "name": "petlab-funnel-devtools",
-  "version": "1.0.1-5",
+  "version": "1.0.0",
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "author": "chesteralan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.15.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-proposal-class-properties": "^7.14.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-react": "^7.14.0",
+    "babel-loader": "^8.2.2",
+    "babel-preset-gatsby-package": "^2.12.0-next.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  }
 }
