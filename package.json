@@ -1,6 +1,6 @@
 {
   "name": "petlab-funnel-devtools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {

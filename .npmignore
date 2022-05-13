@@ -36,7 +36,6 @@ examples
 
 # Plugin
 .cache
-pages
 gatsby-config.js
 public
 tests
