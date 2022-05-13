@@ -4,26 +4,28 @@
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "babel src --out-dir .",
+    "patch": "npm version patch",
+    "minor": "npm version minor"
   },
-  "author": "chesteralan",
+  "author": "Alchie Tagudin (chesteralantagudin@gmail.com)",
   "license": "ISC",
-  "dependencies": {
-    "@babel/runtime": "^7.15.4"
-  },
   "devDependencies": {
-    "@babel/cli": "^7.15.4",
-    "@babel/core": "^7.15.5",
-    "@babel/plugin-proposal-class-properties": "^7.14.0",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.4",
-    "@babel/preset-react": "^7.14.0",
-    "babel-loader": "^8.2.2",
-    "babel-preset-gatsby-package": "^2.12.0-next.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/runtime": "^7.14.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "babel-preset-gatsby-package": "^1.6.0",
+    "enzyme": "^3.11.0",
+    "gatsby": "^3.6.1",
+    "jest": "^27.0.3",
+    "jsdom": "^16.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "gatsby": ">=3.6.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

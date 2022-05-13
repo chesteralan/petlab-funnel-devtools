@@ -120,7 +120,7 @@ const ShowVariableContainer = (props) => {
       case 'currency':
         return `${ProductData.currency.code} (${ProductData.currency.symbol})`;
       case 'tags':
-        return (tags) ? tags : ``;
+        return (tags) ? tags.join(", ") : ``;
       case 'extra':
         return (productSelector?.extra) ? productSelector?.extra : ``;
       case 'rebill_discount':

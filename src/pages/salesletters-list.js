@@ -11,13 +11,13 @@ import THeadContainer from '../components/THeadContainer/THeadContainer';
 import ShowHiddenColumnsContainer from '../components/ShowHiddenColumnsContainer/ShowHiddenColumnsContainer';
 import ListForm from '../components/ListForm/ListForm';
 import RefreshDataButton from '../components/RefreshDataButton/RefreshDataButton';
+import RebuildSiteButton from '../components/RebuildSiteButton/RebuildSiteButton';
 import TopNav from '../components/TopNav/TopNav';
 import PasswordInput from '../components/PasswordInput/PasswordInput';
 
 // funnel helpers 
 import { filterFunction, sortFunction } from '../utils/helpers';
 import Pages from '../components/Pages/Pages';
-
 
 const FunnelsList = (props) => {
 
@@ -43,7 +43,7 @@ const FunnelsList = (props) => {
   const [showLiveUrl, setShowLiveUrl] = useLocalStorage('table-live-url',false);
   const [showStagingUrl, setShowStagingUrl] = useLocalStorage('table-staging-url',false);
 
-  const funnels = props.data.allBuilderModels.funnel;
+  const funnels = props.data.allBuilderModels.salesLetter;
   const allFunnelPageData = props.data.allFunnelPageData.nodes;
 
   const STATES = {
@@ -69,20 +69,20 @@ const FunnelsList = (props) => {
     showStagingUrl, setShowStagingUrl,
   };
 
-    return <>{((password?.length > 0) && (password === process.env.GATSBY_DEVTOOLS_PASSWORD) ) ? (<div style={{ padding: 20 }}>
+    return <>{( (password?.length > 0) && (password === process.env.GATSBY_DEVTOOLS_PASSWORD) ) ? (<div style={{ padding: 20 }}>
       <RefreshDataButton />
       <RebuildSiteButton />
-      <TopNav active="funnels" />
+      <TopNav active="salesletters" />
       <ListForm {...STATES} />
       <LinkListContainer {...STATES} />
       <ShowHiddenColumnsContainer {...STATES} />
  <table border="1" cellPadding="2" cellSpacing="0" style={{ width: '100%', border: '1px solid #000' }} id="devtools-funnels-table">
     <THeadContainer {...STATES} />
    <tbody>
-   {funnels && funnels.filter((item) => filterFunction(item, STATES)).sort((a,b) => sortFunction(a,b,STATES)).map((funnel, index) => <TrContainer funnel={funnel} {...STATES} key={index} />)}
+   {funnels.filter((item) => filterFunction(item, STATES)).sort((a,b) => sortFunction(a,b,STATES)).map((funnel, index) => <TrContainer funnel={funnel} {...STATES} key={index} />)}
     </tbody>
     </table>
-    <Pages {...props.pageContext} pathPrefix={`/devtools/funnels-list`} />
+    <Pages {...props.pageContext} pathPrefix={`/devtools/salesletters-list`} />
     </div>) : <PasswordInput />}
     <Helmet>
       <title>Petlab - Builder - Developer Tools</title>
@@ -95,7 +95,7 @@ export default FunnelsList;
 export const query = graphql`
 query ($limit: Int = 50, $offset: Int = 0) {
   allBuilderModels {
-    funnel( 
+    salesLetter(
       options: { cacheSeconds: 2, staleCacheSeconds: 2, includeRefs: true }
       limit: $limit
       offset: $offset
@@ -104,12 +104,7 @@ query ($limit: Int = 50, $offset: Int = 0) {
       name
       data {
         products
-        settings
-        tags
         url
-        siteMeta
-        design
-        currentCategory
       }
     }
   }

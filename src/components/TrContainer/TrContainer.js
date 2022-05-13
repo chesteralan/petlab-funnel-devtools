@@ -26,7 +26,10 @@ function TrContainer(props) {
         tableProductSelector, 
         showLiveUrl, 
         showStagingUrl, 
+        showLocalUrl
       } = rest;
+
+      const currentSite = window.location.href.replace(window.location.pathname,"");
 
   return <tr>
   <td width="40%">{name}</td>
@@ -36,7 +39,7 @@ function TrContainer(props) {
   </td>
   <td width="5%" align="center" style={{ display: (tableStaging ? 'table-cell' : 'none') }}><a href={`${FUNNEL_ROOT_URL_STAGING}${url}`} rel="noreferrer" target="_blank">{showStagingUrl ? `${FUNNEL_ROOT_URL_STAGING}${url}` : 'Staging'}</a></td>
   <td width="5%" align="center" style={{ display: (tableLive ? 'table-cell' : 'none') }}><a href={`${FUNNEL_ROOT_URL_LIVE}${url}`} rel="noreferrer" target="_blank">{showLiveUrl ? `${FUNNEL_ROOT_URL_LIVE}${url}` : 'Live'}</a></td> 
-  <td width="5%" align="center" style={{ display: (tableLocal ? 'table-cell' : 'none') }}><a href={`${url}`} rel="noreferrer" target="_blank">Local</a></td>
+  <td width="5%" align="center" style={{ display: (tableLocal ? 'table-cell' : 'none') }}><a href={`${url}`} rel="noreferrer" target="_blank">{showLocalUrl ? `${currentSite}${url}` : 'Local'}</a></td>
   <td width="10%" align="left" style={{ display: (tableProductSelector ? 'table-cell' : 'none'),wordBreak: 'break-all' }}><small><a href={`/devtools/funnel-data?path=${url}`} rel="noreferrer" target="_blank">{productsDataId}</a></small></td>
   <td width="40%" align="left" style={{ display: (tableData ? 'table-cell' : 'none') }}><ShowVariableContainer {...props} /></td>
 </tr>

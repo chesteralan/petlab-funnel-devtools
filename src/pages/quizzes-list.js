@@ -11,6 +11,7 @@ import THeadContainer from '../components/THeadContainer/THeadContainer';
 import ShowHiddenColumnsContainer from '../components/ShowHiddenColumnsContainer/ShowHiddenColumnsContainer';
 import ListForm from '../components/ListForm/ListForm';
 import RefreshDataButton from '../components/RefreshDataButton/RefreshDataButton';
+import RebuildSiteButton from '../components/RebuildSiteButton/RebuildSiteButton';
 import TopNav from '../components/TopNav/TopNav';
 import PasswordInput from '../components/PasswordInput/PasswordInput';
 

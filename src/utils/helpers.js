@@ -1,11 +1,13 @@
 
+
 const filterFunction = (item, STATES) => {
    
     const {
         filterBy,
         filterByPathname,
         filterByDesign,
-        filterByTag
+        filterByTag,
+        filterByComponent,
     } = STATES;
 
     let hasGift = false;
@@ -39,6 +41,9 @@ const filterFunction = (item, STATES) => {
             return item;
           });
           return hasGift;
+      case 'component':
+        const blocks = JSON.stringify(item.content.data.blocks);
+        return blocks?.includes(filterByComponent)
       default:
         return true;
     }
