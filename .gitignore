@@ -6,3 +6,6 @@ node_modules
 coverage
 public
 .cache
+/components
+/hooks
+/utils
