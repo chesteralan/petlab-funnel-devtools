@@ -1,12 +1,10 @@
 {
   "name": "petlab-funnel-devtools",
-  "version": "1.0.1-6",
+  "version": "1.0.2",
   "description": "Petlab Funnel Devtools",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir .",
-    "patch": "npm version patch",
-    "minor": "npm version minor"
+    "build": "babel src --out-dir ."
   },
   "author": "Alchie Tagudin (chesteralantagudin@gmail.com)",
   "license": "ISC",
